@@ -1,0 +1,53 @@
+{%load static%}
+{%if message%}
+ <script>
+    alert('{{message}}');
+ </script>   
+
+{%endif%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'user/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Profile</h1>
+        </div>
+        <ul class="nav-link">
+            <li>
+                <a href="{%url 'profile' %}">Home</a>
+            </li>
+
+            <li>
+                <a href="{%url 'log' %}">LogOut</a>
+            </li>
+
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="/postReset/" method="POST" class="sign-in-form">
+                    {%csrf_token%}
+                    <h2 class="tittle">Reset</h2>
+                   
+                    <div class="input-feild">
+                        <i class="fas fa-user"></i>
+                        <input type="email" name="email" placeholder="Email"/>
+                    </div>
+
+                    <input type="submit" class="btn solid" value="Reset" />
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

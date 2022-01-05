@@ -1,0 +1,66 @@
+{%load static%}
+{%if message%}
+ <script>
+    alert('{{message}}');
+ </script>   
+
+{%endif%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'user/style.css' %}">
+    
+    <title>profile</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Profile</h1>
+        </div>
+        <ul class="nav-link">
+            <li>
+                <a href="{%url 'profile' %}">Home</a>
+            </li>
+
+            <li>
+                <a href="{%url 'log' %}">LogOut</a>
+            </li>
+
+            <li>
+                <a href="{%url 'reset' %}">Reset Password</a>
+            </li>
+
+        </ul>
+    </nav>
+    <br> 
+    <h1>{{name}}</h1>
+    <form methot="POST" action="/create/" class="pro">
+        <br><br>
+        <div class="mb-3">
+            <label >Name</label>
+            <input type="name" class="form-control" name="username"  required>
+        </div>
+        <br>
+        <br>
+        <div class="mb-3">
+            <label >Date Of Birth</label>
+            <input type="date" name="dob" >
+        </div>
+        <br>
+        <div class="mb-3">
+            <label >Address</label>
+            <textarea name="address" cols="20" rows="2" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+      
+
+    
+    <!-- <button type="button" class="btn" ><a href="{%url 'log' %}">Logout</a></button> -->
+</body>
+</html>
